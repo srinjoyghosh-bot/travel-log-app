@@ -20,7 +20,11 @@ class _ImageInputState extends State<ImageInput> {
       source: ImageSource.camera,
       maxWidth: 600,
     );
+    //pickImage returns null if camera closed before taking pic
     final imageFile2 = File(imageFile.path);
+    if (imageFile == null) {
+      return;
+    }
     setState(() {
       _storedImage = File(imageFile.path);
     });
